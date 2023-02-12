@@ -8,7 +8,6 @@ import HomeHeader from "@/components/HomeHeader";
 
 // in nextjs 13.2
 // export async function generateMetadata({ params, searchParams }: any) {
-//   console.log(params, "params", searchParams);
 //   if (!params || !params.slug) {
 //     return {};
 //   }

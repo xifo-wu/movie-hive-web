@@ -14,6 +14,7 @@ const SharingSimpleCard = ({ data }: any) => {
           className="rounded-md shadow-lg"
           src={data.small_poster_url}
           fill
+          sizes="150px"
           alt={data.title}
         />
       </div>
