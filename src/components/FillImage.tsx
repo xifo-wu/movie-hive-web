@@ -13,9 +13,9 @@ const FillImage = ({ src, onError, ...rest }: ImageProps) => {
 
   return (
     <Image
+      fill
       {...rest}
       src={isError ? DefaultImage : src}
-      fill
       onError={handleError}
     />
   );

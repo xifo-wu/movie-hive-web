@@ -10,6 +10,14 @@ const nextConfig = {
         protocol: 'https',
         hostname: '**.tmdb.org',
       },
+      {
+        protocol: 'https',
+        hostname: '**.telegram-cdn.org',
+      },
+      {
+        protocol: 'https',
+        hostname: 'telegraph-image.pages.dev',
+      }
     ],
   },
   experimental: {
