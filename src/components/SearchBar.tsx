@@ -28,7 +28,7 @@ const SearchBar = ({ defaultValue }: any) => {
       />
 
       <button
-        className="absolute right-0 bg-amber-500 h-[48px] text-lg py-2 px-7 hover:bg-amber-600 rounded-full tracking-widest"
+        className="text-white absolute right-0 bg-amber-500 h-[48px] text-lg py-2 px-7 hover:bg-amber-600 rounded-full tracking-widest"
         onClick={handleSearch}
       >
         搜索
