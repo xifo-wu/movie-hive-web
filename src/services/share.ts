@@ -52,3 +52,20 @@ export const fetchShareDetail = async (slug: string) => {
 
   return res.json()
 }
+
+
+export const fetchShareSearch = async (params?: { query?: any }) => {
+  const res = await fetch(
+    `${process.env.API_HOST}/api/v1/share/search?${qs.stringify(params)}`,
+    { next: { revalidate: 60 } }
+  );
+
+  // Recommendation: handle errors
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    // throw new Error("Failed to fetch latest share data");
+    return res.json()
+  }
+
+  return res.json()
+};

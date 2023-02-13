@@ -12,11 +12,10 @@ export default async function Head({ params }: { params: { slug: string } }) {
   }
 
   const { data } = response;
-
   return (
     <>
       <title>{data.title}</title>
-      <meta name="description" content={data.overview} />
+      <meta name="description" content={data.overview}></meta>
       <meta name="keywords" content={(data.keywords || []).join(", ")} />
     </>
   );
