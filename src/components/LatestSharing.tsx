@@ -13,9 +13,9 @@ const LatestSharing = async () => {
 
   return (
     <div className="mt-10">
-      <div className="w-full flex justify-between items-center">
-        <h2 className="text-2xl mb-8 font-medium">
-          最新分享 <span className="text-xl">- Latest Sharing</span>
+      <div className="w-full flex justify-between items-center  mb-8">
+        <h2 className="text-2xl font-medium">
+          最新分享 <span className="text-xl text-slate-400 dark:text-slate-200 block sm:inline"><span className="hidden sm:inline">-</span> Latest Sharing</span>
         </h2>
         <Link href="/share" className="text-amber-500">更多</Link>
       </div>
