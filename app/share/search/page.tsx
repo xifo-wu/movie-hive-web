@@ -10,9 +10,7 @@ interface Props {
 const ShareSearch = async ({ searchParams }: Props) => {
   const response = await fetchShareSearch({ query: searchParams?.["query"] });
 
-  console.log(response, "response");
-
-  const { data, meta } = response;
+  const { data = [], meta = { total: 0 } } = response;
 
   return (
     <div>
