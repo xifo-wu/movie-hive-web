@@ -1,5 +1,7 @@
 import qs from "qs";
 
+const API_HOST = process.env.API_HOST ? process.env.API_HOST : '';
+
 export interface PageParams {
   before?: number;
   after?: number;
@@ -7,7 +9,7 @@ export interface PageParams {
 }
 
 export const fetchLatestShare = async () => {
-  const res = await fetch(`${process.env.API_HOST}/api/v1/share/latest`, {
+  const res = await fetch(`${API_HOST}/api/v1/share/latest`, {
     next: { revalidate: 60 },
   });
 
@@ -23,7 +25,7 @@ export const fetchLatestShare = async () => {
 
 export const fetchShare = async (params?: PageParams) => {
   const res = await fetch(
-    `${process.env.API_HOST}/api/v1/share?${qs.stringify(params)}`,
+    `${API_HOST}/api/v1/share?${qs.stringify(params)}`,
     { next: { revalidate: 60 } }
   );
 
@@ -39,7 +41,7 @@ export const fetchShare = async (params?: PageParams) => {
 
 export const fetchShareDetail = async (slug: string) => {
   const res = await fetch(
-    `${process.env.API_HOST}/api/v1/share/${slug}`,
+    `${API_HOST}/api/v1/share/${slug}`,
     { next: { revalidate: 60 } }
   );
 
@@ -56,7 +58,7 @@ export const fetchShareDetail = async (slug: string) => {
 
 export const fetchShareSearch = async (params?: { query?: any }) => {
   const res = await fetch(
-    `${process.env.API_HOST}/api/v1/share/search?${qs.stringify(params)}`,
+    `${API_HOST}/api/v1/share/search?${qs.stringify(params)}`,
     { next: { revalidate: 60 } }
   );
 
