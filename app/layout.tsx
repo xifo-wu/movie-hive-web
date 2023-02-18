@@ -14,9 +14,10 @@ export default function RootLayout({
       <head />
       <body>
         {/* TODO APP 目录正式上线后查看案例写法 */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
+        {process.env.NODE_ENV === "production" && (
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
@@ -24,8 +25,9 @@ export default function RootLayout({
                 page_path: window.location.pathname,
               });
             `,
-          }}
-        />
+            }}
+          />
+        )}
         {children}
       </body>
     </html>
