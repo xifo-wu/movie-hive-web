@@ -110,11 +110,11 @@ const ShareDetail = async ({ params }: Props) => {
           </div>
         </div>
 
-        <div className="w-full md:w-[320px]">
+        {/* <div className="w-full md:w-[320px]">
           <div className="h-[220px] w-full rounded-md flex items-center justify-center bg-slate-300">
             AD Block
           </div>
-        </div>
+        </div> */}
       </div>
 
       <Footer />
