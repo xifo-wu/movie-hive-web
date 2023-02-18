@@ -2,10 +2,13 @@
 
 import { useRouter } from "next/navigation";
 import { ChangeEvent, useEffect, useState } from "react";
+import { useSearchParams } from 'next/navigation';
 
-const SearchBar = ({ defaultValue }: any) => {
+const SearchBar = () => {
+  const searchParams = useSearchParams();
+
   const router = useRouter();
-  const [query, setQuery] = useState(defaultValue);
+  const [query, setQuery] = useState('');
 
   const handleSearch = () => {
     if (!query) return;
@@ -13,9 +16,12 @@ const SearchBar = ({ defaultValue }: any) => {
     router.push(`/share/search?query=${query}`);
   };
 
+  const urlQuery = searchParams.get('query');
   useEffect(() => {
-    setQuery(defaultValue);
-  }, [defaultValue]);
+    if (urlQuery) {
+      setQuery(urlQuery);
+    }
+  }, [urlQuery]);
 
   const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
     setQuery(e.target.value);

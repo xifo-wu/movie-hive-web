@@ -31,7 +31,7 @@ const ShareSearch = async ({ searchParams }: Props) => {
         </Link>
       </div>
       <div className="container max-w-7xl mx-auto px-4 mt-24">
-        <SearchBar defaultValue={searchParams?.query} />
+        <SearchBar />
 
         <div className="my-5">
           <h1>共搜索到 {meta.total} 条相关记录</h1>
