@@ -1,7 +1,7 @@
 "use client";
 
-import { useRouter } from 'next/navigation';
-import { ChangeEvent, useState } from "react";
+import { useRouter } from "next/navigation";
+import { ChangeEvent, useEffect, useState } from "react";
 
 const SearchBar = ({ defaultValue }: any) => {
   const router = useRouter();
@@ -12,6 +12,10 @@ const SearchBar = ({ defaultValue }: any) => {
 
     router.push(`/share/search?query=${query}`);
   };
+
+  useEffect(() => {
+    setQuery(defaultValue);
+  }, [defaultValue]);
 
   const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
     setQuery(e.target.value);
