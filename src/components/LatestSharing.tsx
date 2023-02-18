@@ -20,7 +20,7 @@ const LatestSharing = async () => {
         <Link href="/share" className="text-amber-500">更多</Link>
       </div>
 
-      <div>
+      <div className="mb-5">
         <div className="flex gap-6 flex-wrap">
           {data.map((item: any) => (
             <SharingSimpleCard data={item} key={item.slug} />
