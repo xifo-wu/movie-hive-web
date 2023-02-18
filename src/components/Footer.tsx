@@ -12,7 +12,7 @@ const Footer = () => {
         <div className="flex-1 text-right mt-4">
           <h1>
             影巢 - HD Hive
-            <span className="text-xs opacity-70">（v0.0.1.beta.2）</span>
+            <span className="text-xs opacity-70">（v0.0.1.beta.3）</span>
           </h1>
           <p>© 2023 HD Hive All rights reservd.</p>
         </div>

@@ -1,16 +1,30 @@
+"use client";
+
 import { fetchShareSearch } from "@/services/share";
+import useSWR from "swr";
 import Link from "next/link";
 import Image from "next/image";
 import SearchBar from "@/components/SearchBar";
+import { useSearchParams } from "next/navigation";
+import api from "@/utils/api";
 
 interface Props {
   searchParams?: { [key: string]: string | string[] | undefined };
 }
 
-const ShareSearch = async ({ searchParams }: Props) => {
-  const response = await fetchShareSearch({ query: searchParams?.["query"] });
+const ShareSearch = ({}: Props) => {
+  const searchParams = useSearchParams();
+  const query = searchParams.get("query");
+
+  const { data: response = {}, error } = useSWR<any>(
+    query ? `/api/v1/share/search?query=${query}` : null,
+    api.get
+  );
+  // const response = await fetchShareSearch({ query: searchParams?.["query"] });
 
   const { data = [], meta = { total: 0 } } = response;
+
+  console.log(data, error, "data, error");
 
   return (
     <div>
@@ -59,7 +73,7 @@ const ShareSearch = async ({ searchParams }: Props) => {
                       <div
                         className="text-2xl font-medium"
                         dangerouslySetInnerHTML={{
-                          __html: `${item["highlight"]["title"][0]}<span class="text-lg opacity-80 font-normal">(${item["_source"]['release_date']})</span>`,
+                          __html: `${item["highlight"]["title"][0]}<span class="text-lg opacity-80 font-normal">(${item["_source"]["release_date"]})</span>`,
                         }}
                       />
                     ) : (
