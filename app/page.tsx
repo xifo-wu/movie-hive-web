@@ -1,3 +1,4 @@
+import CategoryCardList from "@/components/CategoryCardList";
 import Footer from "@/components/Footer";
 import HomeBannerSection from "@/components/HomeBannerSection";
 import HomeHeader from "@/components/HomeHeader";
@@ -11,6 +12,8 @@ export default async function Home() {
       {/* @ts-expect-error Server Component */}
       <HomeBannerSection />
       <div className="container max-w-7xl mx-auto px-4 flex flex-col flex-1">
+        {/* 分类 */}
+        <CategoryCardList />
         {/* @ts-expect-error Server Component */}
         <LatestSharing />
       </div>
