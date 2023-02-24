@@ -1,5 +1,4 @@
 // 分类卡片列表
-
 import React from "react";
 import clsx from "clsx";
 import VideoIcon from "./SVGIcon/VideoIcon";
@@ -10,54 +9,63 @@ import EBookIcon from "./SVGIcon/EBookIcon";
 import StudyIcon from "./SVGIcon/StudyIcon";
 import DocumentaryIcon from "./SVGIcon/DocumentaryIcon";
 import RecitalIcon from "./SVGIcon/RecitalIcon";
+import Link from "next/link";
 
 const categories = [
   {
     label: "电影",
     value: "movie",
     color: "red",
+    href: '/movie',
     icon: <VideoIcon className="w-12" />,
   },
   {
     label: "剧集",
     color: "green",
     value: "tv",
+    href: '/tv',
     icon: <TVIcon className="w-12" />,
   },
   {
     label: "动漫",
     value: "anime",
     color: "blue",
+    href: '/anime',
     icon: <AnimeIcon className="w-12" />,
   },
   {
     label: "综艺",
     value: "zongyi",
     color: "pink",
+    href: '/zongyi',
     icon: <ZongYiIcon className="w-12" />,
   },
   {
     label: "学习",
     value: "study",
     color: "teal",
+    href: '/study',
     icon: <StudyIcon className="w-12" />,
   },
   {
     label: "纪录片",
     value: "documentary",
     color: "lime",
+    href: '/documentary',
     icon: <DocumentaryIcon className="w-12" />,
   },
   {
     label: "电子书",
     value: "ebook",
     color: "sky",
+    href: '/ebook',
     icon: <EBookIcon className="w-12" />,
   },
   {
     label: "演唱会",
     value: "recital",
     color: "fuchsia",
+    href: '/recital',
     icon: <RecitalIcon className="w-12" />,
   },
 ];
@@ -67,7 +75,8 @@ const CategoryCardList = () => {
     <div className="flex flex-wrap mt-6 -mx-2">
       {categories.map((item) => {
         return (
-          <div
+          <Link
+            href={item.href}
             key={item.label}
             className="p-2 flex-[50%] sm:flex-[0_0_50%] md:flex-[25%]"
           >
@@ -104,7 +113,7 @@ const CategoryCardList = () => {
               </div>
               {item.icon}
             </div>
-          </div>
+          </Link>
         );
       })}
     </div>
