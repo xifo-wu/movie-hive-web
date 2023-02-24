@@ -12,7 +12,7 @@ const LatestSharing = async () => {
   const { data } = response;
 
   return (
-    <div className="mt-10">
+    <div className="mt-6">
       <div className="w-full flex justify-between items-center  mb-8">
         <h2 className="text-2xl font-medium">
           最新分享 <span className="text-xl text-slate-400 dark:text-slate-200 block sm:inline"><span className="hidden sm:inline">-</span> Latest Sharing</span>
