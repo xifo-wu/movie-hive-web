@@ -14,7 +14,7 @@ interface Props {
 
 const ShareSearch = ({}: Props) => {
   const searchParams = useSearchParams();
-  const query = searchParams.get("query");
+  const query = searchParams?.get("query");
 
   const { data: response = {}, error } = useSWR<any>(
     query ? `/api/v1/share/search?query=${query}` : null,
