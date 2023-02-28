@@ -1,0 +1,3 @@
+.checkbox:checked~.checkboxLabel {
+  color: #f97316;
+}

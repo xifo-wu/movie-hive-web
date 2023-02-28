@@ -9,7 +9,14 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      keyframes: {
+        flash: {
+          'from, 50%, to': { opacity: 1 },
+          '25%, 75%': { opacity: 0 },
+        }
+      }
+    },
   },
   corePlugins: {
     aspectRatio: false,

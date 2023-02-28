@@ -1,4 +1,6 @@
 import "./globals.css";
+import "@/css/slider.css";
+import "@/css/slider-theme.css";
 
 export default function RootLayout({
   children,

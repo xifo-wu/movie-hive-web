@@ -3,7 +3,7 @@ import axios from 'axios';
 const TOKEN_KEY = 'accessToken';
 
 const api = axios.create({
-  baseURL: process.env.NODE_ENV === 'development' ? process.env.NEXT_PUBLIC_API_HOST : '',
+  baseURL: process.env.NEXT_PUBLIC_API_HOST,
 });
 
 // 请求拦截器

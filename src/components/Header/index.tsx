@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { Dialog, Popover } from '@headlessui/react';
-import { TbArrowBigRightLine, TbAlignRight, TbX } from 'react-icons/tb';
+import { TbAlignRight, TbX } from 'react-icons/tb';
 import Image from 'next/image';
 import Link from 'next/link';
 import clsx from 'clsx';
