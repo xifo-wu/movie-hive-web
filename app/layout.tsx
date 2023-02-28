@@ -1,14 +1,12 @@
-import "./globals.css";
-import "@/css/slider.css";
-import "@/css/slider-theme.css";
+import './globals.css';
+import '@/css/slider.css';
+import '@/css/slider-theme.css';
+import Script from 'next/script';
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
+      <Script async src="https://www.googletagmanager.com/gtag/js?id=G-VV14DY375Y" />
       {/*
         <head /> will contain the components returned by the nearest parent
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
@@ -16,7 +14,7 @@ export default function RootLayout({
       <head />
       <body>
         {/* TODO APP 目录正式上线后查看案例写法 */}
-        {process.env.NODE_ENV === "production" && (
+        {process.env.NODE_ENV === 'production' && (
           <script
             dangerouslySetInnerHTML={{
               __html: `
