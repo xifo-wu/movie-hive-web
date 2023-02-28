@@ -15,6 +15,7 @@ export const metadata: Metadata = {
     initialScale: 1,
   },
   icons: '/favicon.ico',
+  themeColor: '#f59e0b',
 };
 
 export default async function Home() {
