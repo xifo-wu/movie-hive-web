@@ -1,4 +1,5 @@
 "use client";
+
 import Link from "next/link";
 import clsx from "clsx";
 import { usePathname } from "next/navigation";
@@ -45,7 +46,7 @@ const NavList = () => {
     <nav className="text-white">
       {navList.map((item) => {
         return (
-          <Link className={clsx("px-3 text-lg", {
+          <Link key={item.href} className={clsx("px-3 text-lg", {
             "text-amber-500 font-bold": pathname === item.href,
             "hover:text-amber-500": pathname !== item.href,
           })} href={item.href}>
@@ -53,6 +54,7 @@ const NavList = () => {
           </Link>
         );
       })}
+      <span className="inline-block md:hidden px-3 text-lg">更多</span>
     </nav>
   );
 };
