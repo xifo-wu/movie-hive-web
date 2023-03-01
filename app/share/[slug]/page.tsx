@@ -1,42 +1,50 @@
-import { notFound } from "next/navigation";
-import { fetchShareDetail } from "@/services/share";
-import Image from "next/image";
-import FillImage from "@/components/FillImage";
-import Markdown from "@/components/Markdown";
-import Footer from "@/components/Footer";
-import HomeHeader from "@/components/HomeHeader";
+import { notFound } from 'next/navigation';
+import { fetchBannerData, fetchShareDetail } from '@/services/share';
+import Image from 'next/image';
+import FillImage from '@/components/FillImage';
+import Markdown from '@/components/Markdown';
+import Footer from '@/components/Footer';
+import { Metadata } from 'next';
+import Header from '@/components/Header';
+import SharingSimpleCard from '@/components/SharingSimpleCard';
 
-// in nextjs 13.2
-// export async function generateMetadata({ params, searchParams }: any) {
-//   if (!params || !params.slug) {
-//     return {};
-//   }
+export async function generateMetadata({ params }: any): Promise<Metadata> {
+  if (!params || !params.slug) {
+    return {};
+  }
 
-//   const response = await fetchShareDetail(params.slug);
-//   if (!response.success) {
-//     return {
-//       title: "NOT FOUND",
-//     };
-//   }
+  const response = await fetchShareDetail(params.slug);
+  if (!response.success) {
+    return {
+      title: 'NOT FOUND',
+    };
+  }
 
-//   const { data } = response;
-//   return { title: data.title };
-// }
+  const { data } = response;
+  return {
+    title: data.title,
+    keywords: [`${data.title}资源分享`, `${data.title}网盘分享`, `${data.title} 在线`],
+    description: `${data.title}资源分享, ${data.title}网盘分享, ${data.title} 在线`,
+  };
+}
 
 interface Props {
   params: { slug: string };
 }
 const ShareDetail = async ({ params }: Props) => {
   const response = await fetchShareDetail(params.slug);
+
   if (!response || !response.success) {
     notFound();
   }
 
   const { data } = response;
+  const { data: bannerData = [] } = await fetchBannerData(data.share_type);
+
   return (
     <div className="min-h-screen h-full flex flex-col">
-      <HomeHeader />
-      <section className="p-8 pt-20 bg-slate-100 relative">
+      <Header />
+      <section className="p-8 bg-slate-100 dark:bg-slate-700 relative">
         <FillImage
           priority
           src={data?.backdrop_url}
@@ -59,24 +67,18 @@ const ShareDetail = async ({ params }: Props) => {
             <div className="title">
               <h1 className="text-4xl font-medium">
                 {data.title}
-                <span className="text-2xl opacity-80 font-normal">
-                  ({data.release_date})
-                </span>
+                <span className="text-2xl opacity-80 font-normal">({data.release_date})</span>
               </h1>
               <div className="my-4">
                 {(data?.genres || []).map((item: string, index: number) => (
                   <span key={index}>
                     {item}
-                    {index !== data.genres.length - 1 && ", "}
+                    {index !== data.genres.length - 1 && ', '}
                   </span>
                 ))}
-                {data.runtime &&
-                  data.share_type === "tv" &&
-                  ` · 每集约 ${data.runtime} 分钟`}
+                {data.runtime && data.share_type === 'tv' && ` · 每集约 ${data.runtime} 分钟`}
 
-                {data.runtime &&
-                  data.share_type === "movie" &&
-                  ` · ${data.runtime} 分钟`}
+                {data.runtime && data.share_type === 'movie' && ` · ${data.runtime} 分钟`}
               </div>
 
               <h2 className="italic opacity-75">{data.tagline}</h2>
@@ -87,15 +89,15 @@ const ShareDetail = async ({ params }: Props) => {
         </div>
       </section>
 
-      <div className="flex gap-4 min-w-0 flex-col-reverse md:flex-row flex-1 container max-w-7xl my-5 mx-auto px-4">
-        <div className="flex-1">
-          <h3 className="my-3 text-xl font-medium">分享来源</h3>
-          <div className="block my-3">
-            <Markdown data={data.share_source || "-"} />
-          </div>
-          <h3 className="my-3 text-xl font-medium">备注</h3>
+      <div className="container max-w-7xl my-5 mx-auto px-4 md:px-8">
+        <div>
+          <h1 className="my-4 md:my-8 relative block text-xl before:w-2 before:h-full before:block before:content-[''] before:absolute before:bg-amber-500 before:left-0 before:top-0 pl-4 before:rounded">
+            资源简介
+          </h1>
           <Markdown data={data.remark} />
-          <h3 className="my-3 text-xl font-medium">分享链接</h3>
+          <h1 className="my-4 md:my-8 relative block text-xl before:w-2 before:h-full before:block before:content-[''] before:absolute before:bg-amber-500 before:left-0 before:top-0 pl-4 before:rounded">
+            分享链接
+          </h1>
           <div>
             {data.share_url.map((item: string) => (
               <a
@@ -111,11 +113,17 @@ const ShareDetail = async ({ params }: Props) => {
           </div>
         </div>
 
-        {/* <div className="w-full md:w-[320px]">
-          <div className="h-[220px] w-full rounded-md flex items-center justify-center bg-slate-300">
-            AD Block
+        {/* 推荐 */}
+        <h1 className="my-4 md:my-8 relative block text-xl before:w-2 before:h-full before:block before:content-[''] before:absolute before:bg-amber-500 before:left-0 before:top-0 pl-4 before:rounded">
+          推荐列表
+        </h1>
+        <div className="mb-5">
+          <div className="flex justify-center md:justify-start gap-6 flex-wrap">
+            {bannerData.map((item: any) => (
+              <SharingSimpleCard data={item} key={item.slug} />
+            ))}
           </div>
-        </div> */}
+        </div>
       </div>
 
       <Footer />

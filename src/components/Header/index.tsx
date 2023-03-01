@@ -48,15 +48,18 @@ export default function Example() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="bg-gray-900">
+    <div className="bg-gray-900">
       <nav className="mx-auto flex max-w-7xl items-center justify-between py-3 px-6 lg:px-8">
         <div className="flex lg:flex-initial">
-          <Link href="/" className="-m-1.5 p-1.5">
+          <Link href="/" className="flex items-center gap-2 -m-1.5 p-1.5">
             <span className="sr-only">影巢</span>
             <Image src="/logo.png" className="w-auto" width={24} height={24} alt="影巢 Logo" />
+            <span className="text-base font-semibold leading-7 text-white tracking-widest">
+              影巢
+            </span>
           </Link>
         </div>
-        {/* 小票展示打开菜单按钮 */}
+        {/* 小屏展示打开菜单按钮 */}
         <div className="flex lg:hidden">
           <button
             type="button"
@@ -134,6 +137,6 @@ export default function Example() {
           </div>
         </Dialog.Panel>
       </Dialog>
-    </header>
+    </div>
   );
 }

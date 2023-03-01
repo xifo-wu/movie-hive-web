@@ -104,15 +104,7 @@ const ShareSearch = ({}: Props) => {
         </div>
         {meta.total === 0 && (
           <div className="text-center flex flex-col justify-center min-h-[40vh] mt-5 ">
-            <div className="my-4">找不到你想要的？那就去问问吧!</div>
-            <a
-              className="text-amber-500"
-              href="https://t.me/s/Aliyun_4K_Movies"
-              target="_blank"
-              rel="noreferrer"
-            >
-              https://t.me/s/Aliyun_4K_Movies
-            </a>
+            <div className="my-4">好像找不到你想要的</div>
           </div>
         )}
       </div>
