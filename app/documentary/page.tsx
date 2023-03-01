@@ -1,6 +1,6 @@
 import BottomTitleBanner from '@/components/Banner/BottomTitleBanner';
+import DocumentarysList from '@/components/Documentary/List';
 import Header from '@/components/Header';
-import TvList from '@/components/Tv/List';
 import { fetchBannerData } from '@/services/share';
 import type { Metadata } from 'next';
 
@@ -16,7 +16,7 @@ const DocumentaryPage = async () => {
     <main className="relative flex flex-col min-h-screen bg-gray-800">
       <Header />
       <BottomTitleBanner data={bannerData} />
-      <TvList />
+      <DocumentarysList />
     </main>
   );
 };
