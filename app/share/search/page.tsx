@@ -109,6 +109,7 @@ const ShareSearch = ({}: Props) => {
               className="text-amber-500"
               href="https://t.me/s/Aliyun_4K_Movies"
               target="_blank"
+              rel="noreferrer"
             >
               https://t.me/s/Aliyun_4K_Movies
             </a>

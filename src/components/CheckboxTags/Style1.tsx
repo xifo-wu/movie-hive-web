@@ -48,4 +48,7 @@ const CheckboxTagStyle1 = forwardRef(({ name, options, onChange }: Props, ref) =
   );
 });
 
+
+CheckboxTagStyle1.displayName = 'CheckboxTagStyle1';
+
 export default CheckboxTagStyle1;

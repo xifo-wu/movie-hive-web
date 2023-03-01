@@ -103,6 +103,7 @@ const ShareDetail = async ({ params }: Props) => {
                 key={item}
                 href={item}
                 target="_blank"
+                rel="noreferrer"
               >
                 {item}
               </a>

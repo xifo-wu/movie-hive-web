@@ -16,7 +16,7 @@ const SearchBar = () => {
     router.push(`/share/search?query=${query}`);
   };
 
-  const urlQuery = searchParams.get('query');
+  const urlQuery = searchParams?.get('query');
   useEffect(() => {
     if (urlQuery) {
       setQuery(urlQuery);
