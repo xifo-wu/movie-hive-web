@@ -53,7 +53,7 @@ export default function Example() {
         <div className="flex lg:flex-initial">
           <Link href="/" className="flex items-center gap-2 -m-1.5 p-1.5">
             <span className="sr-only">影巢</span>
-            <Image src="/logo.png" className="w-auto" width={24} height={24} alt="影巢 Logo" />
+            <Image src="/logo.png" className="w-auto" width={18} height={20} alt="影巢网盘分享" />
             <span className="text-base font-semibold leading-7 text-white tracking-widest">
               影巢
             </span>
