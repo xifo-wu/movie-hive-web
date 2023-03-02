@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
 
   const { data } = response;
   return {
-    title: data.title,
+    title: `${data.title} - 影巢 - 网盘资源`,
     keywords: [`${data.title}资源分享`, `${data.title}网盘分享`, `${data.title} 在线`],
     description: `${data.title}资源分享, ${data.title}网盘分享, ${data.title} 在线`,
   };
