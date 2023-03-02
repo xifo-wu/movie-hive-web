@@ -8,7 +8,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: '影巢 - 网盘资源搜索',
   description:
-    '主打全网阿里云盘资源收集，快速的资料搜索系统。主动收集全网丰富的资源，包含但不限于电影、电视剧、动漫、纪录片、REMUX、蓝光、原盘等',
+    '主打全网阿里云盘资源收集，快速的资料搜索系统，丰富的网盘资源。主动收集全网丰富的资源，包含但不限于电影、电视剧、动漫、纪录片、REMUX、蓝光、原盘等',
   applicationName: '影巢 HdHive',
   keywords: ['云盘资源分享', '云盘网盘资源共享', '云盘资源搜索', '阿里云盘资源', '盘搜'],
   viewport: {
