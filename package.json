@@ -26,6 +26,7 @@
     "react-icons": "^4.7.1",
     "react-markdown": "^8.0.5",
     "react-slick": "^0.29.0",
+    "react-toastify": "^9.1.1",
     "react-use": "^17.4.0",
     "rehype-raw": "^6.1.1",
     "sharp": "^0.31.3",

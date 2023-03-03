@@ -1,3 +1,4 @@
+import 'react-toastify/dist/ReactToastify.css';
 import './globals.css';
 import '@/css/slider.css';
 import '@/css/slider-theme.css';

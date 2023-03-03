@@ -17,6 +17,18 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'telegraph-image.pages.dev',
+      },
+      {
+        protocol: 'https',
+        hostname: '**.unsplash.com'
+      },
+      {
+        protocol: 'https',
+        hostname: '**.gravatar.com'
+      },
+      {
+        protocol: 'https',
+        hostname: '**.pinimg.com'
       }
     ],
   },

@@ -25,6 +25,7 @@ specifiers:
   react-icons: ^4.7.1
   react-markdown: ^8.0.5
   react-slick: ^0.29.0
+  react-toastify: ^9.1.1
   react-use: ^17.4.0
   rehype-raw: ^6.1.1
   sharp: ^0.31.3
@@ -50,6 +51,7 @@ dependencies:
   react-icons: 4.7.1_react@18.2.0
   react-markdown: 8.0.5_3stiutgnnbnfnf3uowm5cip22i
   react-slick: 0.29.0_biqbaboplfbrettd7655fr4n2y
+  react-toastify: 9.1.1_biqbaboplfbrettd7655fr4n2y
   react-use: 17.4.0_biqbaboplfbrettd7655fr4n2y
   rehype-raw: 6.1.1
   sharp: 0.31.3
@@ -2856,6 +2858,17 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       resize-observer-polyfill: 1.5.1
+    dev: false
+
+  /react-toastify/9.1.1_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-pkFCla1z3ve045qvjEmn2xOJOy4ZciwRXm1oMPULVkELi5aJdHCN/FHnuqXq8IwGDLB7PPk2/J6uP9D8ejuiRw==}
+    peerDependencies:
+      react: '>=16'
+      react-dom: '>=16'
+    dependencies:
+      clsx: 1.2.1
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
     dev: false
 
   /react-universal-interface/0.6.2_react@18.2.0+tslib@2.5.0:

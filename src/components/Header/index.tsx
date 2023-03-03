@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { Dialog, Popover } from '@headlessui/react';
-import { TbAlignRight, TbX } from 'react-icons/tb';
+import { TbAlignRight, TbArrowBigRightLine, TbX } from 'react-icons/tb';
 import Image from 'next/image';
 import Link from 'next/link';
 import clsx from 'clsx';
@@ -87,12 +87,12 @@ export default function Example() {
             </Link>
           ))}
         </Popover.Group>
-        {/* <div className="hidden lg:flex lg:justify-end lg:gap-2 lg:items-center select-none cursor-not-allowed">
-          <a className="text-sm font-semibold leading-6 text-white">
+        <div className="hidden lg:flex lg:justify-end lg:gap-2 lg:items-center select-none cursor-not-allowed">
+          <Link href="/login" className="text-sm font-semibold leading-6 text-white">
             登 录 <span aria-hidden="true"></span>
-          </a>
+          </Link>
           <TbArrowBigRightLine className="text-white" />
-        </div> */}
+        </div>
       </nav>
 
       <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
