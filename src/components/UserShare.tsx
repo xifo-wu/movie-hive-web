@@ -66,7 +66,7 @@ const UserShare = ({ userId }: Props) => {
   };
 
   return (
-    <div className="w-full p-4 h-full ">
+    <div className="w-full p-4 h-full">
       {!isLoading && !data.length && page !== 1 && (
         <div className="w-full h-[282px] flex justify-center items-center">没有更多分享了</div>
       )}
