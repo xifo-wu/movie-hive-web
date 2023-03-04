@@ -53,7 +53,7 @@ export default function Example() {
   const pathname = usePathname();
   const router = useRouter();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { user } = useUser();
+  const { user, mutate } = useUser();
   const isDark = useMedia('(prefers-color-scheme: dark)');
 
   const handleLogout = async () => {
@@ -64,7 +64,8 @@ export default function Example() {
       return;
     }
 
-    router.push(`/login?redirect=${pathname}`);
+    // router.push(`/login?redirect=${pathname}`);
+    mutate();
   };
 
   const handleLogin = async () => {
