@@ -77,41 +77,51 @@ const UserShare = ({ userId }: Props) => {
         </div>
       )}
 
-      <div className="min-h-[282px] grid grid-cols-3 lg:grid-cols-4 gap-4">
-        {data.map((item: any) => (
-          <Link key={item.id} href={`/share/${item.slug}`}>
-            <div className="aspect-w-6 aspect-h-9 bg-slate-200 relative">
-              <Image
-                fill
-                src={item.poster_url}
-                className="rounded-md object-cover"
-                alt={item.title}
-              />
-            </div>
-            <h1
-              className="w-[150px] mt-3 whitespace-nowrap text-ellipsis overflow-hidden"
-              title={item.title}
-            >
-              {item.title}
-            </h1>
-            <h2 className="text-xs mt-1 text-slate-400 dark:text-slate-200">{item.release_date}</h2>
-          </Link>
-        ))}
-      </div>
-      <div className="w-full mt-2 text-right space-x-2">
-        <TbChevronLeft
-          onClick={handlePrev}
-          className={clsx('inline-block text-4xl cursor-pointer text-amber-500', {
-            'cursor-not-allowed text-gray-200': page === 1,
-          })}
-        />
-        <TbChevronRight
-          onClick={handleNext}
-          className={clsx('cursor-pointer inline-block text-4xl text-amber-500', {
-            'cursor-not-allowed text-gray-200': data.length !== prePage,
-          })}
-        />
-      </div>
+      {!isValidating && !isLoading && !data.length && (
+        <div className="w-full h-full flex gap-1 justify-center items-center">暂无分享</div>
+      )}
+
+      {!!data.length && (
+        <>
+          <div className="grid grid-cols-3 lg:grid-cols-4 gap-4">
+            {data.map((item: any) => (
+              <Link key={item.id} href={`/share/${item.slug}`}>
+                <div className="aspect-w-6 aspect-h-9 bg-slate-200 relative">
+                  <Image
+                    fill
+                    src={item.poster_url}
+                    className="rounded-md object-cover"
+                    alt={item.title}
+                  />
+                </div>
+                <h1
+                  className="w-[150px] mt-3 whitespace-nowrap text-ellipsis overflow-hidden"
+                  title={item.title}
+                >
+                  {item.title}
+                </h1>
+                <h2 className="text-xs mt-1 text-slate-400 dark:text-slate-200">
+                  {item.release_date}
+                </h2>
+              </Link>
+            ))}
+          </div>
+          <div className="w-full mt-2 text-right space-x-2">
+            <TbChevronLeft
+              onClick={handlePrev}
+              className={clsx('inline-block text-4xl cursor-pointer text-amber-500', {
+                'cursor-not-allowed text-gray-200': page === 1,
+              })}
+            />
+            <TbChevronRight
+              onClick={handleNext}
+              className={clsx('cursor-pointer inline-block text-4xl text-amber-500', {
+                'cursor-not-allowed text-gray-200': data.length !== prePage,
+              })}
+            />
+          </div>
+        </>
+      )}
     </div>
   );
 };

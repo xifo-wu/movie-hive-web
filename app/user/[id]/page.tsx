@@ -43,10 +43,15 @@ const UserPage = ({ params }: Props) => {
     <div className="min-h-screen h-full dark:bg-[#121212] bg-gray-100">
       <Header />
       <div className="bg-slate-900 h-[250px]" />
-      <div className="container max-w-7xl mx-auto px-8 pb-4 -mt-[200px]">
+      <div className="container max-w-7xl mx-auto px-4 md:px-8 pb-4 -mt-[200px]">
         <div className="mb-10 text-xl text-white">{user.nickname}</div>
-        <div className="flex gap-8 h-full">
-          <div className="dark:bg-gray-800 shadow-md rounded-xl bg-white flex-[2] min-h-[250px]">
+        <div className="flex gap-8 h-full flex-wrap-reverse">
+          <div className={
+            clsx(
+              "dark:bg-gray-800 shadow-md rounded-xl bg-white flex-[0_0_100%] min-h-[250px]",
+              "md:flex-[2]"
+            )
+          }>
             <Tab.Group>
               <Tab.List className="flex space-x-1 rounded-xl rounded-b-none bg-amber-900/20 p-1">
                 {tabs.map((i) => (
