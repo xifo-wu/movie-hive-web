@@ -226,7 +226,7 @@ const AnimesList = () => {
       </form>
       <div className="mt-8 min-h-[500px] h-full relative">
         <h1 className="my-4 relative block text-xl before:w-2 before:h-full before:block before:content-[''] before:absolute before:bg-amber-500 before:left-0 before:top-0 pl-4 before:rounded">
-          电影列表
+          动漫列表
         </h1>
         <div className="text-center md:text-left">
           {animes?.map((item) => (
