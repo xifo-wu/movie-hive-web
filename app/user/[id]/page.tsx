@@ -14,6 +14,7 @@ import UserSetting from '@/components/User/UserSetting';
 import { ToastContainer } from 'react-toastify';
 import { useMedia } from 'react-use';
 import Head from 'next/head';
+import _ from 'lodash';
 
 interface Props {
   params: { id: string };
@@ -46,12 +47,12 @@ const UserPage = ({ params }: Props) => {
       <div className="container max-w-7xl mx-auto px-4 md:px-8 pb-4 -mt-[200px]">
         <div className="mb-10 text-xl text-white">{user.nickname}</div>
         <div className="flex gap-8 h-full flex-wrap-reverse">
-          <div className={
-            clsx(
-              "dark:bg-gray-800 shadow-md rounded-xl bg-white flex-[0_0_100%] min-h-[250px]",
-              "md:flex-[2]"
-            )
-          }>
+          <div
+            className={clsx(
+              'dark:bg-gray-800 shadow-md rounded-xl bg-white flex-[0_0_100%] min-h-[250px]',
+              'md:flex-[2]',
+            )}
+          >
             <Tab.Group>
               <Tab.List className="flex space-x-1 rounded-xl rounded-b-none bg-amber-900/20 p-1">
                 {tabs.map((i) => (
@@ -117,7 +118,7 @@ const UserPage = ({ params }: Props) => {
               <AwardsIcon className="w-14" />
               <div className="text-right">
                 <span className="text-gray-400 text-sm">累计分享</span>
-                <h1 className="text-lg">{0}</h1>
+                <h1 className="text-lg">{_.get(user, 'user_meta.share_num', 0)}</h1>
               </div>
             </div>
           </div>
