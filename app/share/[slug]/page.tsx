@@ -7,6 +7,7 @@ import Footer from '@/components/Footer';
 import { Metadata } from 'next';
 import Header from '@/components/Header';
 import SharingSimpleCard from '@/components/SharingSimpleCard';
+import ShareUrls from '@/components/ShareDetail/ShareUrls';
 
 export async function generateMetadata({ params }: any): Promise<Metadata> {
   if (!params || !params.slug) {
@@ -99,17 +100,7 @@ const ShareDetail = async ({ params }: Props) => {
             分享链接
           </h1>
           <div>
-            {data.share_url.map((item: string) => (
-              <a
-                className="text-blue-600 block my-2 whitespace-nowrap text-ellipsis overflow-hidden"
-                key={item}
-                href={item}
-                target="_blank"
-                rel="noreferrer"
-              >
-                {item}
-              </a>
-            ))}
+            <ShareUrls urls={data.share_url} />
           </div>
         </div>
 
