@@ -77,7 +77,7 @@ const UserShare = ({ userId }: Props) => {
         </div>
       )}
 
-      {!isValidating && !isLoading && !data.length && (
+      {!isValidating && !isLoading && !data.length && page === 1 && (
         <div className="w-full h-full flex gap-1 justify-center items-center">暂无分享</div>
       )}
 
