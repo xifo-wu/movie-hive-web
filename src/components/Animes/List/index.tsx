@@ -155,6 +155,7 @@ const AnimesList = () => {
       '/api/v1/share/es-list',
       {
         query: parseQuery(),
+        sort: { updated_at: { order: 'desc' } },
         per_page: 100,
         page: pageIndex + 1,
       },
@@ -195,6 +196,7 @@ const AnimesList = () => {
         '/api/v1/share/es-list',
         {
           query: parseQuery(),
+          sort: { updated_at: { order: 'desc' } },
           per_page: 10,
           page: 1,
         },
