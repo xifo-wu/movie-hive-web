@@ -10,6 +10,8 @@ import { useEffect, useRef, useState } from 'react';
 import { TbRocket } from 'react-icons/tb';
 import Link from 'next/link';
 import _ from 'lodash';
+import Image from 'next/image';
+import ShareCardStyle1 from '@/components/ShareCard/Style1';
 
 const fetcher = async ([url, body]: any) => {
   const { response, error } = await api.post<any, any>(url, body);
@@ -246,38 +248,15 @@ const MoviesList = () => {
         <h1 className="my-4 relative block text-xl before:w-2 before:h-full before:block before:content-[''] before:absolute before:bg-amber-500 before:left-0 before:top-0 pl-4 before:rounded">
           电影列表
         </h1>
-        <div className="text-center md:text-left">
+        <div className="grid grid-cols-3 gap-3 sm:grid-cols-4 md:grid-cols-6">
           {movies?.map((item) => (
-            <div key={item.slug} className="inline-block mb-5 mr-5">
-              <Link
-                className="cursor-pointer transform transition-all duration-300"
-                href={`/share/${item.slug}`}
-              >
-                <div className="w-[150px] overflow-hidden min-h-[225px] relative">
-                  <img
-                    className="rounded-md shadow-lg object-cover"
-                    src={item.small_poster_url}
-                    // fill
-                    sizes="150px"
-                    alt={item.title}
-                  />
-                </div>
-                <h1
-                  className="w-[150px] mt-3 whitespace-nowrap text-ellipsis overflow-hidden"
-                  title={item.title}
-                >
-                  {item.title}
-                </h1>
-                <h2 className="text-xs mt-1 text-slate-400 dark:text-slate-200">
-                  {item.release_date}
-                </h2>
-              </Link>
-            </div>
+            <ShareCardStyle1 key={item.slug} data={item} />
           ))}
-          {data && !movies.length && !isLoading && (
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2">资源好像神秘消失了</div>
-          )}
         </div>
+
+        {data && !movies.length && !isLoading && (
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2">资源好像神秘消失了</div>
+        )}
         <div ref={intersectionObserverRef} />
         {(isLoading || isValidating) && (
           <div className="flex gap-2 items-center justify-center animate-[flash_4s_ease-in-out_infinite]">
