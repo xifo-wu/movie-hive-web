@@ -22,7 +22,6 @@ interface Props {
 
 const UserPage = ({ params }: Props) => {
   const { id } = params;
-  const isDark = useMedia('(prefers-color-scheme: dark)');
   const { user: current } = useUser();
   const { data = {}, error } = useSWR<any>(`/api/v1/user/${id}`, api.get);
 

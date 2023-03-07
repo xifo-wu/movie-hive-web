@@ -36,6 +36,7 @@ const UserShare = ({ userId }: Props) => {
             ],
           },
         },
+        sort: { updated_at: { order: 'desc' } },
         per_page: prePage,
         page,
       },
@@ -86,7 +87,7 @@ const UserShare = ({ userId }: Props) => {
           <div className="grid grid-cols-3 lg:grid-cols-4 gap-4">
             {data.map((item: any) => (
               <Link key={item.id} href={`/share/${item.slug}`}>
-                <div className="aspect-w-6 aspect-h-9 bg-slate-200 relative">
+                <div className="aspect-w-6 aspect-h-9 bg-slate-200 dark:bg-slate-900 rounded-md relative">
                   <Image
                     fill
                     src={item.poster_url}
@@ -95,12 +96,12 @@ const UserShare = ({ userId }: Props) => {
                   />
                 </div>
                 <h1
-                  className="w-[150px] mt-3 whitespace-nowrap text-ellipsis overflow-hidden"
+                  className="w-full mt-3 whitespace-nowrap text-sm sm:text-base text-ellipsis overflow-hidden"
                   title={item.title}
                 >
                   {item.title}
                 </h1>
-                <h2 className="text-xs mt-1 text-slate-400 dark:text-slate-200">
+                <h2 className="mt-1 text-xs text-slate-400 dark:text-slate-200">
                   {item.release_date}
                 </h2>
               </Link>
