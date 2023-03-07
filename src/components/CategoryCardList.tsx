@@ -97,7 +97,7 @@ const CategoryCardList = () => {
               )}
             >
               <div>
-                <h6 className="text-xl tracking-widest">{item.label}</h6>
+                <h6 className="text-lg sm:text-xl tracking-widest">{item.label}</h6>
                 <span
                   className={clsx("block w-14 h-1 rounded-sm my-2", {
                     "bg-red-500": item.color === "red",
