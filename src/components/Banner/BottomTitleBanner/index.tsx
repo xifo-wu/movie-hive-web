@@ -29,7 +29,7 @@ const BottomTitleBanner = ({ data }: BottomTitleBannerProps) => {
               <div className="bg-gradient-to-r from-gray-800 z-10 h-full w-[15%]" />
               <div className="bg-gradient-to-l from-gray-800 z-10 h-full w-[15%]" />
               <div className="bg-gradient-to-t from-gray-800 absolute bottom-0 z-10 h-[10%] w-full" />
-              <div className="absolute z-20 bottom-0 pb-4 pl-7 sm:pb-8 sm:pl-14">
+              <div className="absolute z-20 bottom-0 pb-4 px-7 sm:pb-8 sm:px-14">
                 <h1
                   className="text-sm sm:text-2xl"
                   style={{ textShadow: '2px 2px 6px rgba(0, 0, 0, 0.8)' }}
